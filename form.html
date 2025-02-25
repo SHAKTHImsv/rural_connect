@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="tittle">
+            <li><h1>Rural Connect</h1></li>
+        </div>
+        
+        <div class="buttons">
+            <button id="login">Login</button>
+        </div>
+    </div>
+    <div class="main">
+        <div class="sub">
+            <h1>📝 Register Now - Join the Community</h1>
+            <form action="" id="r_form">
+                <label for="name">Name</label>
+                <input type="text" placeholder="Enter your name" id="name" required>
+                <label for="email">Email</label>
+                <input type="email" placeholder="Enter your email" required id="email">
+                <label for="password">Password</label>
+                <input type="password" placeholder="Enter your password" required id="password">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" placeholder="Confirm password" required id="confirm_password">
+                <label for="phone_number">Phone Number</label>
+                <input type="number" maxlength="10" placeholder="Enter Phone Number" required id="phone_number">
+                <label for="role">Select Role</label>
+                <select name="Role" id="role" required>
+                    <option value="villager">Villager</option>
+                    <option value="volunteer">Volunteer</option>
+                    <option value="official">Official</option>
+                </select>
+                <label for="location">Location (optional)</label>
+                <input type="text" placeholder="Enter your location" id="location">
+                <label for="profile_picture">Profile Picture</label>
+                <input type="file" id="profile_picture">
+                <input type="checkbox" required id="checkbox">
+                <label for="checkbox">I agree to the terms and conditions</label>
+                <button type="submit">Register Now</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login here</a> </p>
+        </div>
+    </div>
+
+    <script src="form.js" type="module"></script>
+</body>
+</html>

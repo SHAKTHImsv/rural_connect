@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="tittle">
+            <h1>Rural Connect</h1>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="elements">
+            <ul>
+                <li id="homeEle"><h5>Home</h5></li>
+                <li id="postAnIssue"><h5>Post An Issue</h5></li>
+                <li id="viewAnIssue"><h5>View Issue</h5></li>
+                <li id="aboutUs"><h5>About</h5></li>
+                <li id="contactUs"><h5>Contact</h5></li>
+            </ul>
+        </div>
+        <div class="buttons">
+            <button id="profileBtn">Profile</button>
+            <button id="signIn" style="display: none;">Sign In</button>
+        </div>
+        
+    </div>
+
+    <section class="home" id="home">
+        <div class="main">
+            <div class="sub">
+                <h1>Empowering Villages, One Solution at a Time</h1>
+                <p>A platform where villages can raise concerns, seek solutions,and connect with people who can help. Join us in maikng a difference.</p>
+            </div>
+        </div>
+        <marquee behavior="scroll" direction="left"  scrollamount="5">Raise Your Voice for village development! | A platform to solve rural problems together! | Join 1000+ users making an impact|</marquee>
+        <div class="issues">
+            <div class="resolved">
+                <h1><span>500 +</span><br>Issues Resolved</h1>
+            </div>
+            <div class="resolved">
+                <h1><span>100 %</span><br>Active Users</h1>
+            </div>
+            <div class="resolved">
+                <h1><span>100 +</span><br>Villages Connected</h1>
+            </div>
+        </div>
+        <div class="btn">
+            <button>Post an Issue</button>
+            <button>View an Issue</button>
+        </div>
+    
+    
+    </section>
+    
+    <section class="post" style="display: none;" id="post">
+        <div class="main">
+            <div class="sub">
+               <h2>Post an Issue - Let Your voice be heard!</h2>
+               <p>Facing a problem in your village? Report it here, and let the community help solve it !</p>
+               <form action="" id="post_form">
+                <label for="">Category</label>
+                <select name="" id="category">
+                    <option>Roads</option>
+                    <option>Water</option>
+                    <option>Electricity</option>
+                    <option>Healthcare</option>
+                    <option>Education</option>
+                    <option>Others</option>
+                </select>
+                <label for="">Description</label>
+                <textarea name="" rows="8"  id="Description_value" placeholder="Description detail"></textarea>
+                <label for="">Location</label>
+                <input type="text" placeholder="Village, District, State" id="Location">
+                <label for="">Contact Details</label>
+                <input type="text" id="contact" placeholder="Phone or Email" >
+                <button type="submit">Submit Issue</button>
+               </form>
+              
+            </div>
+        </div>
+    </section>
+
+
+    <section class="view" style="display: none;" id="view">
+        <div class="main">
+            <div class="sub">
+                <h2>View Issues - Stay Informed, Take Action!</h2>
+                <p>Browse reported issues in villages, connect with people in need, and contribute to community solutions.</p>
+                <div class="search">
+                    <!-- Search by Keyword -->
+                    <input type="text" id="keywordInput" placeholder="Search by keyword">
+    
+                    <!-- Category Selection -->
+                    <select name="category" id="categorySelect">
+                        <option value="All Category">All Category</option>
+                        <option value="Roads">Roads</option>
+                        <option value="Water">Water</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Education">Education</option>
+                    </select>
+    
+                    <!-- Location Selection -->
+                    <input type="text" id="locationInput" placeholder="Enter location">
+    
+                    <!-- Search Button -->
+                    <button class="searchBtn">Search</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Container for displaying the issue cards -->
+        <div class="result-container"></div>
+    </section>
+    
+    
+    
+
+    <section class="about" style="display: none;" id="about">
+        <div class="main">
+            <div class="sub">
+                <h1>🌍 About Us – Bridging Villages, Solving Problems</h1>
+                <p>"A platform dedicated to empowering rural communities by connecting problems with solutions."</p>
+                <h1>✅ Who We Are</h1>
+                <p>"We are a community-driven platform designed to help villages raise concerns, connect with helpers, and find solutions to <br> their problems. From broken roads to water shortages, we ensure that every issue gets the attention it deserves."</p>
+                <h1>✅ Our Mission</h1>
+                <p>"To empower rural communities by providing a digital space where villagers can voice their concerns and find the support they need."</p>
+                <h1>✅ How It Works</h1>
+                <ul>
+                    <li>1️⃣ Post an Issue – Villagers report local problems.</li>
+                    <li>2️⃣ Spread Awareness – Community members view and discuss issues.</li>
+                    <li>3️⃣ Find Solutions – Volunteers, NGOs, and local authorities step in to help.</li>
+                </ul>
+                <div class="btn">
+                    <button>Post an Issue</button>
+                    <button>View an Issue</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" style="display: none;" id="contact">
+        <div class="main">
+            <div class="sub">
+                <h1>📞 Get in Touch – We're Here to Help!</h1>
+                <p>"Have a question, suggestion, or need support? Contact us and let’s work together to solve village issues."</p>
+                <h1>Contact Details:</h1>
+                <ul>
+                    <li>📍 Address: [Your Office/Location]</li>
+                    <li>📧 Email: support@yourwebsite.com</li>
+                    <li>📞 Phone: +91 XXXXXXXXXX</li>
+                    <li>🌐 Website: www.yourwebsite.com</li>
+                </ul>
+    
+                <form id="contactForm">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter Your Name" required>
+    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+    
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="8" placeholder="Enter your Message here...." required></textarea>
+    
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section class="profile" style="display: none;" id="profile">
+        <div class="main">
+            <div class="sub">
+                <h1>Your Profile</h1>
+                <p>Welcome, <span id="username"></span></p>
+                <p>Email: <span id="useremail"></span></p>
+                <button id="signoutBtn">Sign Out</button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+    
+    <script type="module">
+            // Initialize Firebase (same as before)
+                import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+                import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+
+                // Your Firebase configuration
+                    const firebaseConfig = {
+                        apiKey: "AIzaSyDA0LWvg7JO6dcQcXTGF5imH2WErlq7Y9c",
+                        authDomain: "rural-connect-7958b.firebaseapp.com",
+                        projectId: "rural-connect-7958b",
+                        storageBucket: "rural-connect-7958b.firebasestorage.app",
+                        messagingSenderId: "259794734390",
+                        appId: "1:259794734390:web:c8873be10acaa1ae6df797",
+                        measurementId: "G-0DHM9PJ517"
+                    };
+
+
+                // Initialize Firebase
+                const app = initializeApp(firebaseConfig);
+                const auth = getAuth(app);
+
+                // Get references to the HTML elements
+                const profileSection = document.getElementById('profile');
+                const profileBtn = document.getElementById('profileBtn');
+                const signoutBtn = document.getElementById('signoutBtn');
+                const usernameElement = document.getElementById('username');
+                const useremailElement = document.getElementById('useremail');
+
+                // Monitor the user's authentication state
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        // User is signed in, show the profile button
+                        profileBtn.style.display = 'block';  // Show Profile button
+                    } else {
+                        // No user is signed in, hide the profile button
+                        profileBtn.style.display = 'none';  // Hide Profile button
+                    }
+                });
+
+                // Show profile information when "Profile" button is clicked
+                profileBtn.addEventListener('click', () => {
+                    const user = auth.currentUser;
+                    if (user) {
+                        // User is signed in, show profile section with user info
+                        profileSection.style.display = 'block';
+                        const home = document.querySelector(".home");
+                        const post = document.querySelector(".post");
+                        const view = document.querySelector(".view");
+                        const about = document.querySelector(".about");
+                        const contact = document.querySelector(".contact");
+                        home.style.display="none";
+                        post.style.display="none";
+                        view.style.display="none";
+                        about.style.display="none";
+                        contact.style.display="none";
+
+
+                        usernameElement.textContent = user.displayName || 'User'; // If available, show displayName
+                        useremailElement.textContent = user.email;
+                    }
+                });
+
+                // Sign out functionality
+                signoutBtn.addEventListener('click', () => {
+                        signOut(auth).then(() => {
+                            // Sign-out successful, hide the profile section
+                            profileSection.style.display = 'none';
+
+                           window.location.href="index.html";
+                        }).catch((error) => {
+                            console.error("Error signing out: ", error);
+                        });
+                    });
+            
+
+           
+
+            document.getElementById('hamburger').addEventListener('click', function () {
+                    document.querySelector('.navbar').classList.toggle('active');
+                });
+
+            document.getElementById('loginbtn').addEventListener('click', () => {
+                window.location.href = "login.html";
+            });
+            document.getElementById('registerbtn').addEventListener('click', () => {
+                window.location.href = "form.html";
+            });
+            document.getElementById("postI").addEventListener("click", () => {
+                    home.style.display = "none";
+                    post.style.display = "block";
+                    view.style.display = "none";
+                    about.style.display = "none";
+                    contact.style.display = "none";
+                });
+                document.getElementById('viewI').addEventListener('click', () => {
+                    home.style.display = "none";
+                    post.style.display = "none";
+                    view.style.display = "block";
+                    about.style.display = "none";
+                    contact.style.display = "none";
+                });
+          
+
+    </script>
+    
+    <script src="post.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+    <script src="view.js" type="module"></script>
+    <script src="contact.js" type="module"></script>
+
+</body>
+</html>
