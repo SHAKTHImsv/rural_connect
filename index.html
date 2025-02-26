@@ -97,7 +97,8 @@
             />
             <label for="">Contact Details</label>
             <input type="text" id="contact" placeholder="Phone or Email" />
-           
+            <label for="">Upload Image</label>
+            <input type="file" id="Image" />
             <button type="submit">Submit Issue</button>
           </form>
         </div>
@@ -147,7 +148,7 @@
       <div class="result-container"></div>
     </section>
 
-    <section class="about" style="display: none" id="about">
+    <section class="about" style="display: none;" id="about">
       <div class="main">
         <div class="sub">
           <h1>🌍 About Us – Bridging Villages, Solving Problems</h1>
@@ -179,8 +180,8 @@
             </li>
           </ul>
           <div class="btn">
-            <button>Post an Issue</button>
-            <button>View an Issue</button>
+            <button id="pI">Post an Issue</button>
+            <button id="vI">View an Issue</button>
           </div>
         </div>
       </div>
@@ -261,6 +262,20 @@
         contact.style.display = "none";
       });
       document.getElementById('viewI').addEventListener('click',()=>{
+        home.style.display = "none";
+        post.style.display = "none";
+        view.style.display = "block";
+        about.style.display = "none";
+        contact.style.display = "none";
+      });
+      document.getElementById("pI").addEventListener("click", () => {
+        home.style.display = "none";
+        post.style.display = "block";
+        view.style.display = "none";
+        about.style.display = "none";
+        contact.style.display = "none";
+      });
+      document.getElementById('vI').addEventListener('click',()=>{
         home.style.display = "none";
         post.style.display = "none";
         view.style.display = "block";
