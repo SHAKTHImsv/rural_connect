@@ -30,7 +30,7 @@
         </div>
         <div class="buttons">
             <button id="profileBtn">Profile</button>
-            <button id="signIn" style="display: none;">Sign In</button>
+          
         </div>
         
     </div>
@@ -55,8 +55,8 @@
             </div>
         </div>
         <div class="btn">
-            <button id="postI">Post an Issue</button>
-            <button id="viewI">View an Issue</button>
+            <button id="postsI">Post an Issue</button>
+            <button id="viewsI">View an Issue</button>
         </div>
     
     
@@ -142,8 +142,8 @@
                     <li>3️⃣ Find Solutions – Volunteers, NGOs, and local authorities step in to help.</li>
                 </ul>
                 <div class="btn">
-                    <button id="pI">Post an Issue</button>
-                    <button id="vI">View an Issue</button>
+                    <button id="pIs">Post an Issue</button>
+                    <button id="vIs">View an Issue</button>
                 </div>
             </div>
         </div>
@@ -284,38 +284,10 @@
             document.getElementById('registerbtn').addEventListener('click', () => {
                 window.location.href = "form.html";
             });
-            document.getElementById("postI").addEventListener("click", () => {
-        home.style.display = "none";
-        post.style.display = "block";
-        view.style.display = "none";
-        about.style.display = "none";
-        contact.style.display = "none";
-      });
-      document.getElementById('viewI').addEventListener('click',()=>{
-        home.style.display = "none";
-        post.style.display = "none";
-        view.style.display = "block";
-        about.style.display = "none";
-        contact.style.display = "none";
-      });
-      document.getElementById("pI").addEventListener("click", () => {
-        home.style.display = "none";
-        post.style.display = "block";
-        view.style.display = "none";
-        about.style.display = "none";
-        contact.style.display = "none";
-      });
-      document.getElementById('vI').addEventListener('click',()=>{
-        home.style.display = "none";
-        post.style.display = "none";
-        view.style.display = "block";
-        about.style.display = "none";
-        contact.style.display = "none";
-      });
-          
 
+           
     </script>
-    
+    <script src="but.js"></script>
     <script src="post.js" type="module"></script>
     <script src="script.js" type="module"></script>
     <script src="view.js" type="module"></script>
