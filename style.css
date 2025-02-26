@@ -141,6 +141,13 @@ li{
     padding: 10px 35px;
     white-space: nowrap;
    }
+   #about .btn{
+    width: 100%;
+   }
+   #about button{
+    padding: 10px 35px;
+    white-space: nowrap;
+   }
 }
 
 
